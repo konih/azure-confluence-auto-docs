@@ -1,0 +1,229 @@
+azure_vm_info_raw_output = {
+  "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Compute/virtualMachines"
+  "output" = {
+    "value" = [
+      {
+        "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Compute/virtualMachines/autodocs-demo-2-1"
+        "identity" = {
+          "principalId" = "50e031d2-5857-47d9-bc6d-a91fd3f614ab"
+          "tenantId" = "7de8503c-2c3c-4969-87b9-fab849a36043"
+          "type" = "SystemAssigned"
+        }
+        "location" = "germanywestcentral"
+        "name" = "autodocs-demo-2-1"
+        "properties" = {
+          "additionalCapabilities" = {
+            "hibernationEnabled" = false
+          }
+          "diagnosticsProfile" = {
+            "bootDiagnostics" = {
+              "enabled" = true
+            }
+          }
+          "hardwareProfile" = {
+            "vmSize" = "Standard_DS1_v2"
+          }
+          "networkProfile" = {
+            "networkInterfaces" = [
+              {
+                "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Network/networkInterfaces/autodocs-demo-2-1737_z1"
+                "properties" = {
+                  "deleteOption" = "Detach"
+                }
+              },
+            ]
+          }
+          "osProfile" = {
+            "adminUsername" = "azureuser"
+            "allowExtensionOperations" = true
+            "computerName" = "autodocs-demo-2-1"
+            "linuxConfiguration" = {
+              "disablePasswordAuthentication" = true
+              "patchSettings" = {
+                "assessmentMode" = "ImageDefault"
+                "automaticByPlatformSettings" = {
+                  "bypassPlatformSafetyChecksOnUserSchedule" = false
+                  "rebootSetting" = "IfRequired"
+                }
+                "patchMode" = "AutomaticByPlatform"
+              }
+              "provisionVMAgent" = true
+              "ssh" = {
+                "publicKeys" = [
+                  {
+                    "keyData" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7vcKuJ29yPi7ALB84WWxxGAWiT9cW6C6GTVWcIbHU+TpWuZiTMWGHdEwC79Du4DXFi4kWhi9K5eqNyLMjnBOAG7mq7c2hI06cNAXcB5/5lMHXFvnYHbQJVp0MKDsZkNkeib8edE+8jX6pJxJ2J/S/TdDp7/BSnVxIXQGwuOWiXTUfOKnuMJXZ1UKax+r5VEqKf4xidJgeY3P4Isgxbg+wQVZHnyzrvuJ9jcwMdN9rCmy1YXqWB5Z8e/zdlx6q2mdrS9vivpZU+rjDpmcVxpE/VisVGJZKxyHfoXSGwpiUBqCg3OOaJXKaYZeW05Esf7YUNNx3ASsrwN7SDsHH0C0egVhCb+jsusMijyPU/XPxOEGcYg15bm8vjEYgzWDjUHrVEn0F7iqJhNQDgFG9axG4QEwW/G4dLu6WrQ4iNIhjqwr9e3aRZ4I43EzjyXAyMTlFcXLjG6k/HIIR5RPW0J1VCzRtlbjK6WWIoOclOMGq5TPnxH2Ux6WMb4R2ZTFz6zE= generated-by-azure"
+                    "path" = "/home/azureuser/.ssh/authorized_keys"
+                  },
+                ]
+              }
+            }
+            "requireGuestProvisionSignal" = true
+            "secrets" = []
+          }
+          "provisioningState" = "Succeeded"
+          "securityProfile" = {
+            "securityType" = "TrustedLaunch"
+            "uefiSettings" = {
+              "secureBootEnabled" = true
+              "vTpmEnabled" = true
+            }
+          }
+          "storageProfile" = {
+            "dataDisks" = []
+            "diskControllerType" = "SCSI"
+            "imageReference" = {
+              "exactVersion" = "20.04.202405130"
+              "offer" = "0001-com-ubuntu-server-focal"
+              "publisher" = "canonical"
+              "sku" = "20_04-lts-gen2"
+              "version" = "latest"
+            }
+            "osDisk" = {
+              "caching" = "ReadWrite"
+              "createOption" = "FromImage"
+              "deleteOption" = "Delete"
+              "diskSizeGB" = 30
+              "managedDisk" = {
+                "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Compute/disks/autodocs-demo-2-1_OsDisk_1_ce29d6095e0f4bf983a529da87ff79fe"
+                "storageAccountType" = "Premium_LRS"
+              }
+              "name" = "autodocs-demo-2-1_OsDisk_1_ce29d6095e0f4bf983a529da87ff79fe"
+              "osType" = "Linux"
+            }
+          }
+          "timeCreated" = "2024-05-31T07:34:46.8420664+00:00"
+          "vmId" = "8c104271-bed0-4bb4-a32d-df6935e43f75"
+        }
+        "tags" = {
+          "Application name" = "Another Application"
+          "Cost center" = "somebody pays"
+          "Data Classification" = "Public"
+          "Iac Source Url" = "https://github.com/konih/azure-confluence-auto-docs.git"
+          "Operations team" = "cloudpractice"
+          "Owner name" = "konrad.heimel@nagarro.com"
+          "Requester name" = "konrad.heimel@nagarro.com"
+          "Service class" = "Gold"
+          "Workload name" = "work work"
+        }
+        "type" = "Microsoft.Compute/virtualMachines"
+        "zones" = [
+          "1",
+        ]
+      },
+      {
+        "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Compute/virtualMachines/autodocs-demo-2-2"
+        "identity" = {
+          "principalId" = "ecfa02f6-5b97-40ab-9cff-41692bf94bfc"
+          "tenantId" = "7de8503c-2c3c-4969-87b9-fab849a36043"
+          "type" = "SystemAssigned"
+        }
+        "location" = "germanywestcentral"
+        "name" = "autodocs-demo-2-2"
+        "properties" = {
+          "additionalCapabilities" = {
+            "hibernationEnabled" = false
+          }
+          "diagnosticsProfile" = {
+            "bootDiagnostics" = {
+              "enabled" = true
+            }
+          }
+          "hardwareProfile" = {
+            "vmSize" = "Standard_DS1_v2"
+          }
+          "networkProfile" = {
+            "networkInterfaces" = [
+              {
+                "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Network/networkInterfaces/autodocs-demo-2-1577_z2"
+                "properties" = {
+                  "deleteOption" = "Detach"
+                }
+              },
+            ]
+          }
+          "osProfile" = {
+            "adminUsername" = "azureuser"
+            "allowExtensionOperations" = true
+            "computerName" = "autodocs-demo-2-2"
+            "linuxConfiguration" = {
+              "disablePasswordAuthentication" = true
+              "patchSettings" = {
+                "assessmentMode" = "ImageDefault"
+                "automaticByPlatformSettings" = {
+                  "bypassPlatformSafetyChecksOnUserSchedule" = false
+                  "rebootSetting" = "IfRequired"
+                }
+                "patchMode" = "AutomaticByPlatform"
+              }
+              "provisionVMAgent" = true
+              "ssh" = {
+                "publicKeys" = [
+                  {
+                    "keyData" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7vcKuJ29yPi7ALB84WWxxGAWiT9cW6C6GTVWcIbHU+TpWuZiTMWGHdEwC79Du4DXFi4kWhi9K5eqNyLMjnBOAG7mq7c2hI06cNAXcB5/5lMHXFvnYHbQJVp0MKDsZkNkeib8edE+8jX6pJxJ2J/S/TdDp7/BSnVxIXQGwuOWiXTUfOKnuMJXZ1UKax+r5VEqKf4xidJgeY3P4Isgxbg+wQVZHnyzrvuJ9jcwMdN9rCmy1YXqWB5Z8e/zdlx6q2mdrS9vivpZU+rjDpmcVxpE/VisVGJZKxyHfoXSGwpiUBqCg3OOaJXKaYZeW05Esf7YUNNx3ASsrwN7SDsHH0C0egVhCb+jsusMijyPU/XPxOEGcYg15bm8vjEYgzWDjUHrVEn0F7iqJhNQDgFG9axG4QEwW/G4dLu6WrQ4iNIhjqwr9e3aRZ4I43EzjyXAyMTlFcXLjG6k/HIIR5RPW0J1VCzRtlbjK6WWIoOclOMGq5TPnxH2Ux6WMb4R2ZTFz6zE= generated-by-azure"
+                    "path" = "/home/azureuser/.ssh/authorized_keys"
+                  },
+                ]
+              }
+            }
+            "requireGuestProvisionSignal" = true
+            "secrets" = []
+          }
+          "provisioningState" = "Succeeded"
+          "securityProfile" = {
+            "securityType" = "TrustedLaunch"
+            "uefiSettings" = {
+              "secureBootEnabled" = true
+              "vTpmEnabled" = true
+            }
+          }
+          "storageProfile" = {
+            "dataDisks" = []
+            "diskControllerType" = "SCSI"
+            "imageReference" = {
+              "exactVersion" = "20.04.202405130"
+              "offer" = "0001-com-ubuntu-server-focal"
+              "publisher" = "canonical"
+              "sku" = "20_04-lts-gen2"
+              "version" = "latest"
+            }
+            "osDisk" = {
+              "caching" = "ReadWrite"
+              "createOption" = "FromImage"
+              "deleteOption" = "Delete"
+              "diskSizeGB" = 30
+              "managedDisk" = {
+                "id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group/providers/Microsoft.Compute/disks/autodocs-demo-2-2_OsDisk_1_270506ccc33647ad8b48180acf0f01da"
+                "storageAccountType" = "Premium_LRS"
+              }
+              "name" = "autodocs-demo-2-2_OsDisk_1_270506ccc33647ad8b48180acf0f01da"
+              "osType" = "Linux"
+            }
+          }
+          "timeCreated" = "2024-05-31T07:34:47.545199+00:00"
+          "vmId" = "dcc7ac0f-c4d4-4a76-92c8-47e2c8fd5dab"
+        }
+        "tags" = {
+          "Application name" = "Another Application"
+          "Cost center" = "somebody pays"
+          "Data Classification" = "Public"
+          "Iac Source Url" = "https://github.com/konih/azure-confluence-auto-docs.git"
+          "Operations team" = "cloudpractice"
+          "Owner name" = "konrad.heimel@nagarro.com"
+          "Requester name" = "konrad.heimel@nagarro.com"
+          "Service class" = "Gold"
+          "Workload name" = "work work"
+        }
+        "type" = "Microsoft.Compute/virtualMachines"
+        "zones" = [
+          "2",
+        ]
+      },
+    ]
+  }
+  "parent_id" = "/subscriptions/6f96e2b5-9c4c-42a4-bcba-703ad23ba0dc/resourceGroups/autodocs-demo-2-1_group"
+  "response_export_values" = tolist([
+    "*",
+  ])
+  "timeouts" = null /* object */
+  "type" = "Microsoft.Compute/virtualMachines@2023-09-01"
+}
