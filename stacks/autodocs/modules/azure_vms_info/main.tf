@@ -94,7 +94,7 @@ locals {
       public_ip_addresses  = data.azurerm_virtual_machine.vm_info[vm.id].public_ip_addresses
 
       network_interface_id  = vm.properties.networkProfile.networkInterfaces[0].id
-      network_inferface_ids = [
+      network_interfaces = [
         for ni in vm.properties.networkProfile.networkInterfaces :
         {
           id                        = ni.id
@@ -110,14 +110,14 @@ locals {
               subnet_id                                     = ip_config.subnet_id
               load_balancer_backend_address_pools_ids       = ip_config.load_balancer_backend_address_pools_ids
               application_gateway_backend_address_pools_ids = ip_config.application_gateway_backend_address_pools_ids
-              mac_address                                   = ip_config.mac_address
             }
           }
 
+          mac_address         = data.azurerm_network_interface.vm_network_interface[ni.id].mac_address
           applied_dns_servers = data.azurerm_network_interface.vm_network_interface[ni.id].applied_dns_servers
-          location           = data.azurerm_network_interface.vm_network_interface[ni.id].location
-          subnet_id          = data.azurerm_network_interface.vm_network_interface[ni.id].ip_configuration[0].subnet_id
-          private_ip_address = data.azurerm_network_interface.vm_network_interface[ni.id].private_ip_address
+          location            = data.azurerm_network_interface.vm_network_interface[ni.id].location
+          subnet_id           = data.azurerm_network_interface.vm_network_interface[ni.id].ip_configuration[0].subnet_id
+          private_ip_address  = data.azurerm_network_interface.vm_network_interface[ni.id].private_ip_address
         }
       ]
 
@@ -127,10 +127,3 @@ locals {
   }
 }
 
-output "vm_details" {
-  value = local.vm_details
-}
-
-output "vms_by_resource_group_raw_output" {
-  value = data.azapi_resource_list.vms_by_resource_group
-}

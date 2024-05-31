@@ -1,23 +1,44 @@
-#resource "confluence_content" "default" {
-#  space = "KB"
-#  title = "Azure VM Details: ${data.azurerm_virtual_machine.test.name}"
-#  body = templatefile("${path.module}/azure_vm_template.tftpl", {
-#    id                  = "example_id" // add the id here
-#    vm_name             = data.azurerm_virtual_machine.test.name
-#    resource_group_name = data.azurerm_virtual_machine.test.resource_group_name
-#    location            = data.azurerm_virtual_machine.test.location
-#    vm_size             = "10GB"
-#    os_disk_name        = "Test"
-#    os_type             = "Linux"
-#    admin_username      = "admin"
-#    network_interface_ids = [
-#      "test"
-#    ]
-#    tags = {
-#      tag1 = "value1"
-#      tag2 = "value2"
-#      // add more tags as needed
-#    }
-#  })
-#  parent = "33172"
-#}
+locals {
+  resource_groups = toset(var.resource_group_names)
+  all_vms_list    = flatten([
+    for key, output in module.azure_vms_info_autodocs_demo :
+    [
+      for key, vm in output.vms_details :
+      vm
+    ]
+  ])
+  all_vms_details = {
+    for vm in local.all_vms_list :
+    vm.id => vm
+  }
+}
+
+data "azurerm_resource_group" "resource_groups" {
+  for_each = local.resource_groups
+
+  name = each.key
+}
+
+module "azure_vms_info_autodocs_demo" {
+  for_each = data.azurerm_resource_group.resource_groups
+  source   = "./modules/azure_vms_info"
+
+  resource_group_name = data.azurerm_resource_group.resource_groups[each.key].name
+  resource_group_id   = data.azurerm_resource_group.resource_groups[each.key].id
+}
+
+
+module "confluence_azure_vm_details" {
+  source   = "./modules/confluence_azure_vm_details"
+  for_each = local.all_vms_details
+
+  vm_details = each.value
+}
+
+resource "confluence_content" "default" {
+  for_each = local.all_vms_details
+  space    = "KB"
+  title    = "${each.value.name} - ${each.value.resource_group_name}"
+  body     = module.confluence_azure_vm_details[each.key].templated_content
+  parent   = "33172"
+}
