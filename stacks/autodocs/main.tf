@@ -38,7 +38,7 @@ module "confluence_azure_vm_details" {
 resource "confluence_content" "default" {
   for_each = local.all_vms_details
   space    = "KB"
-  title    = "${each.value.name} - ${each.value.resource_group_name}"
+  title    = "${each.value.name} - ${each.value.resource_group_name} - Vm Details"
   body     = module.confluence_azure_vm_details[each.key].templated_content
   parent   = "33172"
 }
