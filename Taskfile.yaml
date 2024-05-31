@@ -4,21 +4,12 @@ dotenv: ['.env', '{{.ENV}}/.env.', '{{.HOME}}/.env']
 
 vars:
   TAGS: "dev"
+
 tasks:
   default:
     desc: Show the list of tasks
     cmds:
       - task --list  # Lists all available tasks
-
-  gcloud-auth-tedi:
-    desc: Gcloud auth impersonate service account for TEDI network project
-    cmds:
-      - task: gcloud-auth-create-config
-        vars:
-          SERVICE_ACCOUNT: "sa-terraform-env@tdi-b-seed-09c3.iam.gserviceaccount.com"
-    aliases:
-      - gcat
-
   # Terramate initialization task with tag-based filtering and alias
   terramate-init:
     desc: Initialize Terramate stack with TAGS (e.g., task tmi TAGS=sandbox:bootstrap)
@@ -131,22 +122,3 @@ tasks:
     desc: Run pre-commit hooks
     cmds:
       - pre-commit run --all-files  # Executes all configured pre-commit hooks
-
-  bats-tests:
-    desc: Run all BATS tests for bash scripts
-    cmds:
-      - cd scripts/bats-tests && bats  # Changes directory to bats-tests and runs BATS
-
-  run-gitlab-comment:
-    desc: Run the Python script
-    cmds:
-      - python3 scripts/gitlab-comment/gitlab_comment.py $CI_COMMIT_SHORT_SHA $CI_PROJECT_ID $GITLAB_ACCESS_TOKEN stacks --debug
-    env:
-      CI_COMMIT_SHORT_SHA: fd46efe  # Environment variable for commit SHA
-      CI_PROJECT_ID: 57377180  # Environment variable for GitLab project ID
-      GITLAB_ACCESS_TOKEN:  # Environment variable for GitLab access token (to be set in CI/CD settings)
-    requires:
-      env:
-        - CI_COMMIT_SHORT_SHA
-        - CI_PROJECT_ID
-        - GITLAB_ACCESS_TOKEN
