@@ -13,7 +13,7 @@ locals {
   service_class_emoji = lookup(local.service_class_emojis, lower(local.service_class), "🤷")
 
   network_interfaces_html = templatefile("${path.module}/network_interfaces.html", {
-    network_interfaces = {for interface in var.vm_details.network_interfaces : interface.id => interface}
+    network_interfaces = { for interface in var.vm_details.network_interfaces : interface.id => interface }
   })
 
   content = templatefile("${path.module}/azure_vm_template.html", {

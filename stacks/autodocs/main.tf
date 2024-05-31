@@ -1,6 +1,6 @@
 locals {
   resource_groups = toset(var.resource_group_names)
-  all_vms_list    = flatten([
+  all_vms_list = flatten([
     for key, output in module.azure_vms_info_autodocs_demo :
     [
       for key, vm in output.vms_details :

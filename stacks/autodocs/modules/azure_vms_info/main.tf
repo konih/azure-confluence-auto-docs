@@ -51,7 +51,7 @@ locals {
       provisioning_state = vm.properties.provisioningState
       security_profile   = vm.properties.securityProfile
       os_type            = vm.properties.storageProfile.osDisk.osType
-      os_image           = {
+      os_image = {
         publisher     = vm.properties.storageProfile.imageReference.publisher
         offer         = vm.properties.storageProfile.imageReference.offer
         sku           = vm.properties.storageProfile.imageReference.sku
@@ -81,7 +81,7 @@ locals {
       private_ip_addresses = data.azurerm_virtual_machine.vm_info[vm.id].private_ip_addresses
       public_ip_addresses  = data.azurerm_virtual_machine.vm_info[vm.id].public_ip_addresses
 
-      network_interface_id  = vm.properties.networkProfile.networkInterfaces[0].id
+      network_interface_id = vm.properties.networkProfile.networkInterfaces[0].id
       network_interfaces = [
         for ni in vm.properties.networkProfile.networkInterfaces :
         {
@@ -114,4 +114,3 @@ locals {
     }
   }
 }
-
